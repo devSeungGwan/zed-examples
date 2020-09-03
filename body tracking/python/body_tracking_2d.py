@@ -62,7 +62,7 @@ def main():
 
     objects = sl.Objects()
     obj_runtime_param = sl.ObjectDetectionRuntimeParameters()
-    obj_runtime_param.detection_confidence_threshold = 40
+    obj_runtime_param.detection_confidence_threshold = 20
 
     while key != 113: # for 'q' key
         # Grab an image, a RuntimeParameters object must be given to grab()
@@ -83,7 +83,7 @@ def main():
                 for kp in keypoint:
                     if kp[0] > 0 and kp[1] > 0:
                         cv2.circle(image_data, (int(kp[0]), int(kp[1])), 3, get_color_id_gr(int(obj_data.id)), -1)
-                
+
                 for bone in sl.BODY_BONES:
                     kp1 = keypoint[bone[0].value]
                     kp2 = keypoint[bone[1].value]
